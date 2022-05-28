@@ -1,0 +1,45 @@
+{
+  "name": "exaple/php-bootstrap",
+  "description": "Bootstrap a project in PHP following best practices.",
+  "type": "project",
+  "keywords": ["bootstrap", "skeleton"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Carlos Oliveros"
+    }
+  ],
+  "require": {
+    "php": "^7.4||^8.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.5",
+    "phpunit/phpunit": "^9.4",
+    "mockery/mockery": "^1.2",
+    "fzaninotto/faker": "^1.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Example\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Example\\Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "stable",
+  "config": {
+    "optimize-autoloader": true
+  },
+  "prefer-stable": true,
+  "scripts": {
+    "style": "phpcs -p --standard=PSR2 src tests",
+    "fix-style": "phpcbf -p --standard=PSR2 src tests",
+    "phpunit": "phpunit --configuration phpunit.xml",
+    "test": [
+      "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+      "phpunit --configuration phpunit.xml"
+    ]
+  }
+}
